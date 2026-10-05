@@ -1,0 +1,329 @@
+/* ==========================================================================
+   AI SUPER USER / Plainwrk  ·  DESIGN TOKENS
+   System: Quiet v2. One voice, two widths.
+   Source of truth: brand-guidelines.md. Visual reference: preview.html
+
+   HOW TO USE
+   Import this file. Never restate a value from it.
+       <link rel="stylesheet" href="tokens.css">
+   or inline the whole file into a self-contained deliverable.
+
+   A hex code typed by hand anywhere else is a bug, not a shortcut.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. COLOUR  ·  LIGHT (default)
+   -------------------------------------------------------------------------- */
+:root {
+  /* core neutrals */
+  --bg:             #FAF6F1;   /* page ground, warm off-white */
+  --surface:        #FFFCF6;   /* raised: cards, panels, slides */
+  --surface-2:      #F3EDE4;   /* sunken: wells, code blocks, alt rows */
+  --ink:            #2B2420;   /* primary text */
+  --ink-muted:      #6B6058;   /* secondary text, captions, metadata */
+  --ink-faint:      #948A80;   /* DECORATIVE ONLY. ghost numerals. never running text */
+  --border:         #E6DACB;   /* hairline dividers */
+  --border-strong:  #D5C6B2;   /* table header rules, emphasised edges */
+
+  /* brand accents */
+  --accent:         #A84F29;   /* terracotta */
+  --accent-quiet:   #83847B;   /* warm grey-sage. fills and eyebrows, not body text */
+
+  /* flat semantic colours: text and icons on --bg or --surface */
+  --success:        #4F7A52;
+  --warning:        #8A5A1F;
+  --danger:         #A8412E;
+
+  /* ---- semantic triads: bg + ink + edge ----
+     RULE: text on a -bg ALWAYS uses that triad's own -ink. Never borrow. */
+  --accent-bg:   #F4E5DB;  --accent-ink:   #8F4222;  --accent-edge:   #A84F29;
+  --info-bg:     #ECEBE2;  --info-ink:     #55584A;  --info-edge:     #83847B;
+  --success-bg:  #E7EEE3;  --success-ink:  #3D6040;  --success-edge:  #4F7A52;
+  --warning-bg:  #F6EBD7;  --warning-ink:  #6E4712;  --warning-edge:  #8A5A1F;
+  --danger-bg:   #F6E2DB;  --danger-ink:   #8A3021;  --danger-edge:   #A8412E;
+
+  /* ---- buttons: 4 kinds, 5 states ---- */
+  --btn-primary-bg:        #A84F29;  --btn-primary-ink:      #FFF9F2;
+  --btn-primary-hover:     #8F4222;  --btn-primary-active:   #7A3618;
+  --btn-primary-dis-bg:    #E4D5C9;  --btn-primary-dis-ink:  #A79A8C;
+
+  --btn-secondary-bg:      var(--accent-bg);
+  --btn-secondary-ink:     var(--accent-ink);
+  --btn-secondary-hover:   #EEDACB;  --btn-secondary-active: #E5CCB9;
+
+  --btn-ghost-ink:         var(--ink);
+  --btn-ghost-hover-bg:    var(--surface-2);
+
+  --btn-danger-bg:         #A8412E;  --btn-danger-ink:       #FFF6F1;
+  --btn-danger-hover:      #8F3423;  --btn-danger-active:    #7A2A1B;
+
+  --focus-ring-width:      2px;
+  --focus-ring-color:      var(--accent);
+  --focus-ring-offset:     2px;
+
+  /* elevation, warm-tinted. never pure black */
+  --shadow-sm: 0 1px 2px rgba(43,36,32,.06), 0 1px 1px rgba(43,36,32,.04);
+  --shadow-md: 0 4px 12px rgba(43,36,32,.08), 0 2px 4px rgba(43,36,32,.05);
+  --shadow-lg: 0 12px 32px rgba(43,36,32,.12), 0 4px 8px rgba(43,36,32,.06);
+}
+
+/* --------------------------------------------------------------------------
+   2. COLOUR  ·  DARK
+   Applies on [data-theme="dark"], or on system preference when no explicit
+   [data-theme="light"] has been set.
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] {
+  --bg:             #211C18;
+  --surface:        #2A231D;
+  --surface-2:      #322A22;
+  --ink:            #F3EAE0;
+  --ink-muted:      #B8AA9C;
+  --ink-faint:      #6E6257;
+  --border:         #3A322B;
+  --border-strong:  #4A4034;
+
+  --accent:         #E08A5C;
+  --accent-quiet:   #A6A398;
+
+  --success:        #8FB088;
+  --warning:        #D9A455;
+  --danger:         #D97A63;
+
+  --accent-bg:   #3B2417;  --accent-ink:   #ECA57C;  --accent-edge:   #E08A5C;
+  --info-bg:     #2A2C24;  --info-ink:     #C6C8B4;  --info-edge:     #A6A398;
+  --success-bg:  #24301F;  --success-ink:  #A9CBA0;  --success-edge:  #8FB088;
+  --warning-bg:  #362A14;  --warning-ink:  #E4BC72;  --warning-edge:  #D9A455;
+  --danger-bg:   #38201A;  --danger-ink:   #EC9B85;  --danger-edge:   #D97A63;
+
+  --btn-primary-bg:        #E08A5C;  --btn-primary-ink:      #2B1A10;
+  --btn-primary-hover:     #E89B72;  --btn-primary-active:   #D77C4B;
+  --btn-primary-dis-bg:    #4A3D31;  --btn-primary-dis-ink:  #8C7B6B;
+  --btn-secondary-hover:   #46301F;  --btn-secondary-active: #523823;
+  --btn-danger-bg:         #D97A63;  --btn-danger-ink:       #2B120C;
+  --btn-danger-hover:      #E28B75;  --btn-danger-active:    #C96A53;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.30), 0 1px 1px rgba(0,0,0,.20);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.35), 0 2px 4px rgba(0,0,0,.22);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,.45), 0 4px 8px rgba(0,0,0,.28);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:             #211C18;
+    --surface:        #2A231D;
+    --surface-2:      #322A22;
+    --ink:            #F3EAE0;
+    --ink-muted:      #B8AA9C;
+    --ink-faint:      #6E6257;
+    --border:         #3A322B;
+    --border-strong:  #4A4034;
+
+    --accent:         #E08A5C;
+    --accent-quiet:   #A6A398;
+
+    --success:        #8FB088;
+    --warning:        #D9A455;
+    --danger:         #D97A63;
+
+    --accent-bg:   #3B2417;  --accent-ink:   #ECA57C;  --accent-edge:   #E08A5C;
+    --info-bg:     #2A2C24;  --info-ink:     #C6C8B4;  --info-edge:     #A6A398;
+    --success-bg:  #24301F;  --success-ink:  #A9CBA0;  --success-edge:  #8FB088;
+    --warning-bg:  #362A14;  --warning-ink:  #E4BC72;  --warning-edge:  #D9A455;
+    --danger-bg:   #38201A;  --danger-ink:   #EC9B85;  --danger-edge:   #D97A63;
+
+    --btn-primary-bg:        #E08A5C;  --btn-primary-ink:      #2B1A10;
+    --btn-primary-hover:     #E89B72;  --btn-primary-active:   #D77C4B;
+    --btn-primary-dis-bg:    #4A3D31;  --btn-primary-dis-ink:  #8C7B6B;
+    --btn-secondary-hover:   #46301F;  --btn-secondary-active: #523823;
+    --btn-danger-bg:         #D97A63;  --btn-danger-ink:       #2B120C;
+    --btn-danger-hover:      #E28B75;  --btn-danger-active:    #C96A53;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.30), 0 1px 1px rgba(0,0,0,.20);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.35), 0 2px 4px rgba(0,0,0,.22);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,.45), 0 4px 8px rgba(0,0,0,.28);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. FONT FACES
+   🔒 These @font-face rules are NOT optional decoration. They are the only
+   reason weights 200 and 300 work at all.
+
+   WHY: Google's static TTFs declare each thin weight as its OWN family
+   ("Barlow Condensed ExtraLight", not "Barlow Condensed" at weight 200).
+   A system-installed font therefore renders Regular when asked for 200.
+   Declaring the weight here is what maps them back into one family.
+
+   Paths are relative to this file. Keep tokens.css and fonts/ together.
+   For a single-file deliverable sent to a student, base64-inline these
+   instead; see brand-guidelines.md.
+   -------------------------------------------------------------------------- */
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400;
+  src: url('fonts/Barlow-Regular.subset.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 500;
+  src: url('fonts/Barlow-Medium.subset.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600;
+  src: url('fonts/Barlow-SemiBold.subset.woff2') format('woff2'); font-display: swap; }
+
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 200;
+  src: url('fonts/BarlowCondensed-ExtraLight.subset.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 300;
+  src: url('fonts/BarlowCondensed-Light.subset.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 400;
+  src: url('fonts/BarlowCondensed-Regular.subset.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 500;
+  src: url('fonts/BarlowCondensed-Medium.subset.woff2') format('woff2'); font-display: swap; }
+
+/* variable font: one file covers the whole weight range */
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 100 800;
+  src: url('fonts/JetBrainsMono-Variable.subset.woff2') format('woff2'); font-display: swap; }
+
+/* --------------------------------------------------------------------------
+   4. TYPE
+   Barlow superfamily. One designer, one skeleton, two widths.
+   Condensed NEVER appears below 28px. That boundary is load-bearing.
+   -------------------------------------------------------------------------- */
+:root {
+  --font-display: 'Barlow Condensed', 'Bahnschrift SemiCondensed', Bahnschrift, 'Arial Narrow', 'Segoe UI', sans-serif;
+  --font-sans:    'Barlow', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace;
+
+  /* sizes. raised one notch for compressed video-call screen share */
+  --text-xs:       0.8125rem;  /* 13px */
+  --text-sm:       0.9375rem;  /* 15px */
+  --text-base:     1.125rem;   /* 18px */
+  --text-md:       1.25rem;    /* 20px */
+  --text-lg:       1.5rem;     /* 24px */
+  --text-xl:       2rem;       /* 32px  · condensed */
+  --text-xxl:      3rem;       /* 48px  · condensed */
+  --text-display:  4.5rem;     /* 72px  · condensed */
+  --text-hero:     7.5rem;     /* 120px · condensed, cover only, once per deck */
+  --text-label:    0.75rem;    /* 12px  · mono, uppercase */
+
+  /* weights */
+  --w-hero: 200;  --w-display: 300;  --w-xxl: 400;  --w-xl: 500;
+  --w-body: 400;  --w-medium: 500;   --w-strong: 600;
+
+  /* line heights */
+  --lh-hero: .92;  --lh-display: 1.02;  --lh-xxl: 1.08;  --lh-xl: 1.2;
+  --lh-lg: 1.4;    --lh-body: 1.65;     --lh-sm: 1.55;
+
+  /* tracking */
+  --tr-hero: .02em;  --tr-display: .01em;  --tr-body: 0;
+  --tr-label: .14em; --tr-xs: .02em;
+
+  --measure: 68ch;  /* body line length target, 65 to 75ch */
+}
+
+/* --------------------------------------------------------------------------
+   5. SPACE, RADIUS, BORDER
+   --space-10 is the MINIMUM gap between major sections.
+   If a layout cannot afford it, cut content. Never cut the air.
+   -------------------------------------------------------------------------- */
+:root {
+  --space-1:  4px;    --space-2:  8px;    --space-3:  12px;
+  --space-4:  16px;   --space-5:  24px;   --space-6:  32px;
+  --space-7:  48px;   --space-8:  64px;   --space-9:  96px;
+  --space-10: 128px;  --space-11: 192px;
+
+  --radius-sm:   8px;    /* inputs, tags, chips */
+  --radius-md:   14px;   /* buttons, callouts */
+  --radius-lg:   20px;   /* cards, stat tiles, code blocks */
+  --radius-xl:   28px;   /* feature panels, slide frames */
+  --radius-pill: 999px;
+
+  --border-hairline: 1px;
+  --border-emphasis: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   6. MINIMAL PRIMITIVES
+   Just enough to keep every deliverable consistent without a framework.
+   -------------------------------------------------------------------------- */
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.u-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.u-hero,
+.u-display,
+.u-xxl,
+.u-xl {
+  font-family: var(--font-display);
+  letter-spacing: var(--tr-display);
+}
+.u-hero    { font-size: var(--text-hero);    font-weight: var(--w-hero);    line-height: var(--lh-hero); letter-spacing: var(--tr-hero); }
+.u-display { font-size: var(--text-display); font-weight: var(--w-display); line-height: var(--lh-display); }
+.u-xxl     { font-size: var(--text-xxl);     font-weight: var(--w-xxl);     line-height: var(--lh-xxl); }
+.u-xl      { font-size: var(--text-xl);      font-weight: var(--w-xl);      line-height: var(--lh-xl); }
+
+.u-measure { max-width: var(--measure); }
+
+/* callout: background, edge and label always travel together */
+.u-callout {
+  border-radius: var(--radius-md);
+  border-left: var(--border-emphasis) solid;
+  padding: var(--space-5) var(--space-6);
+}
+.u-callout--info    { background: var(--info-bg);    border-color: var(--info-edge);    color: var(--info-ink); }
+.u-callout--warning { background: var(--warning-bg); border-color: var(--warning-edge); color: var(--warning-ink); }
+.u-callout--danger  { background: var(--danger-bg);  border-color: var(--danger-edge);  color: var(--danger-ink); }
+.u-callout--success { background: var(--success-bg); border-color: var(--success-edge); color: var(--success-ink); }
+.u-callout--accent  { background: var(--accent-bg);  border-color: var(--accent-edge);  color: var(--accent-ink); }
+
+/* buttons */
+.u-btn {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: var(--w-medium);
+  letter-spacing: .02em;
+  height: 44px;
+  padding: 0 var(--space-6);
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: background .2s ease, transform .2s ease;
+}
+.u-btn:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+.u-btn--sm { height: 36px; padding: 0 var(--space-5); font-size: 0.875rem; }
+.u-btn--lg { height: 52px; padding: 0 var(--space-7); font-size: 1rem; }
+
+.u-btn--primary          { background: var(--btn-primary-bg); color: var(--btn-primary-ink); }
+.u-btn--primary:hover    { background: var(--btn-primary-hover); transform: translateY(-1px); }
+.u-btn--primary:active   { background: var(--btn-primary-active); transform: none; }
+.u-btn--primary:disabled { background: var(--btn-primary-dis-bg); color: var(--btn-primary-dis-ink); cursor: not-allowed; transform: none; }
+
+.u-btn--secondary        { background: var(--btn-secondary-bg); color: var(--btn-secondary-ink); }
+.u-btn--secondary:hover  { background: var(--btn-secondary-hover); }
+.u-btn--secondary:active { background: var(--btn-secondary-active); }
+
+.u-btn--ghost            { background: transparent; color: var(--btn-ghost-ink); }
+.u-btn--ghost:hover      { background: var(--btn-ghost-hover-bg); }
+
+.u-btn--danger           { background: var(--btn-danger-bg); color: var(--btn-danger-ink); }
+.u-btn--danger:hover     { background: var(--btn-danger-hover); }
+.u-btn--danger:active    { background: var(--btn-danger-active); }
+
+@media (prefers-reduced-motion: reduce) {
+  .u-btn { transition: none; }
+  .u-btn--primary:hover { transform: none; }
+}

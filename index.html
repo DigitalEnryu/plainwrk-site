@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Plainwrk · Run your business on AI, without hiring an agency</title>
+<meta name="description" content="Plainwrk trains Shopify store owners and small business owners to build and run their own AI systems, without hiring an agency.">
+<link rel="canonical" href="https://plainwrk.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://plainwrk.com/">
+<meta property="og:title" content="Plainwrk · Run your business on AI, without hiring an agency">
+<meta property="og:description" content="Training for owners who want AI capability in-house, not another vendor.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/BarlowCondensed-ExtraLight.subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Barlow-Regular.subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* Layout only. Every colour, font, size and space comes from tokens.css. */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  a { color: inherit; }
+  :focus-visible { outline: var(--focus-ring-width) solid var(--focus-ring-color); outline-offset: var(--focus-ring-offset); border-radius: var(--radius-sm); }
+
+  .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 var(--space-6); }
+  @media (max-width: 640px) { .wrap { padding: 0 var(--space-4); } }
+
+  /* ---- top bar ---- */
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+         padding-top: var(--space-6); padding-bottom: var(--space-6); border-bottom: var(--border-hairline) solid var(--border); }
+  .wordmark { font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--w-display);
+              letter-spacing: var(--tr-display); line-height: 1; color: var(--ink); text-decoration: none; }
+  .bar nav { display: flex; gap: var(--space-5); }
+  .bar nav a { text-decoration: none; }
+  .bar nav a:hover { color: var(--accent); }
+  @media (max-width: 640px) { .bar nav .hide-sm { display: none; } }
+
+  /* ---- hero ---- */
+  .hero { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+  .eyebrow { display: block; margin-bottom: var(--space-3); color: var(--accent-quiet); }
+  .hero h1 { margin: var(--space-5) 0 0; font-family: var(--font-display); font-weight: var(--w-hero);
+             font-size: clamp(var(--text-xxl), 11vw, var(--text-hero)); line-height: var(--lh-hero);
+             letter-spacing: var(--tr-hero); max-width: 11ch; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero .lede { margin: var(--space-7) 0 0; font-size: var(--text-lg); line-height: var(--lh-lg);
+                color: var(--ink-muted); max-width: 34ch; }
+  .hero .lede strong { color: var(--ink); font-weight: var(--w-medium); }
+  .actions { margin-top: var(--space-7); display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .u-btn { text-decoration: none; }
+  .u-btn svg { width: 16px; height: 16px; flex: none; }
+
+  /* ---- sections ---- */
+  section.block { border-top: var(--border-hairline) solid var(--border); padding-top: var(--space-9); padding-bottom: var(--space-10); }
+  .grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--space-6); }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; gap: 0; } }
+  .ghost { font-family: var(--font-display); font-weight: var(--w-hero); font-size: var(--text-hero);
+           line-height: var(--lh-hero); letter-spacing: var(--tr-hero); color: var(--ink-faint);
+           user-select: none; margin: 0; }
+  @media (max-width: 860px) { .ghost { font-size: var(--text-display); margin-bottom: var(--space-5); } }
+  h2 { margin: 0; font-family: var(--font-display); font-weight: var(--w-display);
+       font-size: clamp(var(--text-xxl), 6vw, var(--text-display)); line-height: var(--lh-display);
+       letter-spacing: var(--tr-display); max-width: 14ch; }
+  .rule { height: 0; border: 0; border-top: var(--border-hairline) solid var(--border); margin: var(--space-6) 0 var(--space-7); }
+  .prose { max-width: var(--measure); font-size: var(--text-md); }
+  .prose p { margin: 0 0 var(--space-5); }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* example cards */
+  .cards { margin-top: var(--space-7); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+  @media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: var(--border-hairline) solid var(--border); border-radius: var(--radius-lg);
+          padding: var(--space-6); box-shadow: var(--shadow-sm); }
+  .card .u-label { display: block; margin-bottom: var(--space-4); color: var(--accent-quiet); }
+  .card h3 { margin: 0 0 var(--space-3); font-size: var(--text-lg); line-height: var(--lh-lg); font-weight: var(--w-medium); }
+  .card p { margin: 0; color: var(--ink-muted); font-size: var(--text-base); }
+
+  /* steps */
+  .steps { list-style: none; margin: 0; padding: 0; }
+  .steps li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--space-5);
+              padding: var(--space-6) 0; border-top: var(--border-hairline) solid var(--border); }
+  .steps li:first-child { border-top: 0; padding-top: 0; }
+  .steps .n { font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: var(--tr-label); text-transform: uppercase; font-weight: var(--w-medium);
+              color: var(--accent); padding-top: .45em; }
+  .steps h3 { margin: 0 0 var(--space-2); font-size: var(--text-lg); line-height: var(--lh-lg); font-weight: var(--w-medium); }
+  .steps p { margin: 0; color: var(--ink-muted); max-width: var(--measure); }
+  .steps q { quotes: "\201C" "\201D"; color: var(--ink); }
+
+  .u-callout { margin-top: var(--space-7); max-width: var(--measure); }
+  .u-callout .u-label { display: block; margin-bottom: var(--space-2); color: inherit; }
+  .u-callout p { margin: 0; color: var(--ink); }
+
+  /* contact */
+  .contact { border-top: var(--border-hairline) solid var(--border); padding-top: var(--space-10); padding-bottom: var(--space-10); }
+  .contact h2 { max-width: 12ch; }
+  .contact .prose { margin-top: var(--space-6); color: var(--ink-muted); }
+  .form { margin-top: var(--space-7); max-width: 760px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+  @media (max-width: 640px) { .form { grid-template-columns: 1fr; } }
+  .field { display: flex; flex-direction: column; gap: var(--space-2); }
+  .field--wide { grid-column: 1 / -1; }
+  .field input, .field textarea { font: inherit; font-size: var(--text-base); color: var(--ink); background: var(--surface);
+    border: var(--border-hairline) solid var(--border-strong); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); width: 100%; }
+  .field textarea { resize: vertical; min-height: 140px; line-height: var(--lh-sm); }
+  .field input:focus-visible, .field textarea:focus-visible { outline: var(--focus-ring-width) solid var(--focus-ring-color); outline-offset: 0; border-color: var(--accent); }
+  .field [aria-invalid="true"] { border-color: var(--danger-edge); }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); }
+  .status { margin: 0; font-size: var(--text-sm); color: var(--ink-muted); }
+  .status[data-tone="ok"] { color: var(--success); }
+  .status[data-tone="err"] { color: var(--danger); }
+
+  footer { border-top: var(--border-hairline) solid var(--border); padding-top: var(--space-6); padding-bottom: var(--space-7);
+           display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* one orchestrated entrance, nothing else moves */
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .reveal { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .d1 { animation-delay: .05s; } .d2 { animation-delay: .18s; } .d3 { animation-delay: .34s; } .d4 { animation-delay: .5s; }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; } }
+</style>
+</head>
+<body>
+
+<header class="wrap bar">
+  <a class="wordmark" href="/" aria-label="Plainwrk, home">Plainwrk</a>
+  <nav class="u-label" aria-label="Main">
+    <a class="hide-sm" href="#examples">Examples</a>
+    <a class="hide-sm" href="#how">How it works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero" aria-labelledby="hero-title">
+    <span class="u-label eyebrow reveal d1">AI training for business owners</span>
+    <h1 id="hero-title" class="reveal d2">Run your business on AI. <em>Without hiring an agency.</em></h1>
+    <p class="lede reveal d3">I train Shopify store owners and small business owners to build and run their own AI systems. <strong>You do the work. I direct it.</strong> The way a personal trainer never lifts the bar.</p>
+    <div class="actions reveal d4">
+      <a class="u-btn u-btn--primary u-btn--lg" href="#contact">Get in touch
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="block" id="examples" aria-labelledby="examples-title">
+    <div class="wrap grid">
+      <p class="ghost" aria-hidden="true">01</p>
+      <div>
+        <span class="u-label eyebrow">What you could build</span>
+        <h2 id="examples-title">Systems for the work behind the store.</h2>
+        <hr class="rule">
+        <div class="prose">
+          <p>13+ years running operations across e-commerce and supply chain. So we start where most of a store's hours actually go: stock, suppliers, orders and the reports nobody has time to write.</p>
+          <p>A few of the systems Shopify owners can build with me. In every one, you approve before anything goes out.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="u-label">Inventory</span>
+            <h3>Low-stock alerts that say what to reorder</h3>
+            <p>Watches your Shopify stock against how fast each product sells, flags what will run out, and drafts the purchase order for you to check.</p>
+          </article>
+          <article class="card">
+            <span class="u-label">Forecasting</span>
+            <h3>A buying plan you can actually read</h3>
+            <p>Turns past sales, seasons and planned promotions into a plain-English plan of what to buy, how much, and when.</p>
+          </article>
+          <article class="card">
+            <span class="u-label">Suppliers</span>
+            <h3>Supplier follow-ups that don't slip</h3>
+            <p>Tracks open orders with your suppliers, drafts the chase email when a shipment runs late, and keeps arrival dates current.</p>
+          </article>
+          <article class="card">
+            <span class="u-label">Customer service</span>
+            <h3>"Where is my order?" replies, drafted</h3>
+            <p>Reads the order and tracking status, then drafts the reply in your voice, ready for you to send.</p>
+          </article>
+          <article class="card">
+            <span class="u-label">Catalogue</span>
+            <h3>Product listings from a spec sheet</h3>
+            <p>Takes a supplier's spec sheet and writes the title, description and tags in your brand's voice, ready to load into Shopify.</p>
+          </article>
+          <article class="card">
+            <span class="u-label">Reporting</span>
+            <h3>A Monday report that writes itself</h3>
+            <p>Pulls last week's sales, stock and spend into one short summary, with the three things worth your attention first.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how" aria-labelledby="how-title">
+    <div class="wrap grid">
+      <p class="ghost" aria-hidden="true">02</p>
+      <div>
+        <span class="u-label eyebrow">How it works</span>
+        <h2 id="how-title">You build it. I direct it.</h2>
+        <hr class="rule">
+        <ol class="steps">
+          <li>
+            <span class="n">Step 01</span>
+            <div>
+              <h3>Start from the work you'd hand to a vendor</h3>
+              <p>The brief you would send an agency or a freelancer is where we begin. <q>Your spec document is the prototype of your system.</q></p>
+            </div>
+          </li>
+          <li>
+            <span class="n">Step 02</span>
+            <div>
+              <h3>You do the work, I direct it</h3>
+              <p>You build the system yourself, with me alongside. The capability stays inside your business instead of becoming another vendor dependency.</p>
+            </div>
+          </li>
+          <li>
+            <span class="n">Step 03</span>
+            <div>
+              <h3>You keep what you built</h3>
+              <p>The proof isn't a report from me. It's a working system you built and know how to run.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="u-callout u-callout--accent">
+          <span class="u-label">Who it suits</span>
+          <p>Owners who want AI capability in-house, not another vendor to manage. If you want someone to build it while you wait, this isn't that.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap contact" id="contact" aria-labelledby="contact-title">
+    <span class="u-label eyebrow">Contact</span>
+    <h2 id="contact-title">Tell me what you'd hand to an agency.</h2>
+    <div class="prose">
+      <p>Send a few lines on the work that eats your week. I'll reply myself.</p>
+    </div>
+    <form class="form" id="contact-form" novalidate>
+      <div class="field">
+        <label class="u-label" for="f-name">Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label class="u-label" for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field field--wide">
+        <label class="u-label" for="f-message">What would you hand to an agency?</label>
+        <textarea id="f-message" name="message" rows="5" required></textarea>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="f-website">Leave this empty</label>
+        <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="field--wide form-foot">
+        <button class="u-btn u-btn--primary u-btn--lg" type="submit">Send message</button>
+        <p class="status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap u-label">
+  <span>&copy; 2026 Plainwrk</span>
+</footer>
+
+<script>
+  /* Contact form. Posts to a Google Form owned by the Plainwrk Workspace account,
+     so no email address appears anywhere on this page. Fill FORM once the Google Form exists. */
+  const FORM = {
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSdTq58791qWGGC6SHMY71d96mSDN6gWKml8cT9gt8K-cqHCww/formResponse',
+    fields: { name: 'entry.1922345275', email: 'entry.651692966', message: 'entry.1275022914' }
+  };
+  const form = document.getElementById('contact-form');
+  const f = (n) => form.elements.namedItem(n);
+  const status = document.getElementById('form-status');
+  const say = (msg, tone) => { status.textContent = msg; status.dataset.tone = tone || ''; };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = f('name').value.trim(), email = f('email').value.trim(), message = f('message').value.trim();
+    let bad = null;
+    for (const [el, ok] of [[f('name'), !!name], [f('email'), /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)], [f('message'), !!message]]) {
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true'); if (!ok && !bad) bad = el;
+    }
+    if (bad) { say('Please fill in all three fields with a valid email.', 'err'); bad.focus(); return; }
+    if (f('website').value) { form.reset(); say('Thanks. Your message is on its way.', 'ok'); return; }
+    if (!FORM.action) { say('The form is not connected yet.', 'err'); return; }
+    const btn = form.querySelector('button'); btn.disabled = true; say('Sending...');
+    const body = new URLSearchParams({ [FORM.fields.name]: name, [FORM.fields.email]: email, [FORM.fields.message]: message });
+    try {
+      await fetch(FORM.action, { method: 'POST', mode: 'no-cors', body });
+      form.reset(); say('Thanks. Your message is on its way, and I will reply myself.', 'ok');
+    } catch (err) {
+      say('That did not send. Please try again in a minute.', 'err');
+    } finally { btn.disabled = false; }
+  });
+</script>
+</body>
+</html>
